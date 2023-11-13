@@ -2,12 +2,12 @@
 layout: home
 search_exclude: true
 ---
-Sticking out your gyat for the rizzler,
+Sticking out thy gyat for thou rizzler,
 
-you're so skibidi,
+you art so skibidi,
 
-you're so fanum tax, 
+you at so fanum tax, 
 
-I js wanna be your sigma
+I just want to be your sigma
 
 # Posts
