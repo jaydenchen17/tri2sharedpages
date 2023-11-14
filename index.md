@@ -6,8 +6,8 @@ Sticking out thy gyat for thou rizzler,
 
 you art so skibidi,
 
-you at so fanum tax, 
+you art so fanum tax, 
 
-I just want to be your sigma
+I would like to be your sigma
 
 # Posts
