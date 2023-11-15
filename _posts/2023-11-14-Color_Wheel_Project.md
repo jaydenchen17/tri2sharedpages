@@ -1,4 +1,16 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
+=======
+---
+toc: true
+comments: false
+hide: true
+layout: post
+type: help
+title: Color Wheel 
+---
+
+>>>>>>> 5c971c7 (color searcher)
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -104,5 +116,63 @@
       updateColorInfo(x, y);
     });
   </script>
+</body>
+</html>
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Searcher</title>
+  <style>
+    #colorBox {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 10px;
+    }
+  </style>
+  <script>
+    function updateColorAndBinary() {
+      // Get the hex color code from the user
+      var hexColorInput = document.getElementById('hexColorInput').value;
+      // Validate the hex color code
+      var isValidHex = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(hexColorInput);
+      if (!isValidHex) {
+        alert('Please enter a valid hex color code.');
+        return;
+      }
+      // Display the color
+      var colorBox = document.getElementById('colorBox');
+      colorBox.style.backgroundColor = hexToRgb(hexColorInput);
+      // Display the binary representation of the color
+      var decimalColorValue = parseInt(hexColorInput.substring(1), 16); // Remove '#' and convert to decimal
+      var binaryResult = decimalColorValue.toString(2);
+      document.getElementById('binaryResult').textContent = binaryResult;
+    }
+    function hexToRgb(hex) {
+      // Remove the '#' character, if present
+      hex = hex.replace(/^#/, '');
+      // Parse the hex code to RGB
+      var bigint = parseInt(hex, 16);
+      var r = (bigint >> 16) & 255;
+      var g = (bigint >> 8) & 255;
+      var b = bigint & 255;
+      // Return the RGB format
+      return 'rgb(' + r + ',' + g + ',' + b + ')';
+    }
+  </script>
+</head>
+<body>
+  <h2>Hex Color and Binary Operations</h2>
+
+  <label for="hexColorInput">Enter Hex Color Code:</label>
+  <input type="text" id="hexColorInput" placeholder="Enter hex color code" maxlength="7">
+
+  <button onclick="updateColorAndBinary()">Update Color and Binary</button>
+
+  <h3>Results:</h3>
+  <div id="colorBox"></div>
+  <p><strong>Binary Representation:</strong> <span id="binaryResult"></span></p>
 </body>
 </html>
