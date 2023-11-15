@@ -1,13 +1,3 @@
-
----
-toc: true
-comments: false
-hide: true
-layout: post
-type: help
-title: Color Wheel 
----
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,6 +15,9 @@ title: Color Wheel
     canvas {
       border: 2px solid #000;
       cursor: crosshair;
+    }
+    #colorInfo {
+      text-align: center;
     }
   </style>
 </head>
@@ -60,6 +53,7 @@ title: Color Wheel
     }
 
     function hsvToRgb(h, s, v) {
+      h = (h + 360) % 360; // Ensure h is between 0 and 360 degrees
       h /= 360;
       s = Math.min(1, Math.max(0, s));
       v = Math.min(1, Math.max(0, v));
