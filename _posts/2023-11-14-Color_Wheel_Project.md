@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-<!DOCTYPE html>
-=======
 ---
 toc: true
 comments: false
