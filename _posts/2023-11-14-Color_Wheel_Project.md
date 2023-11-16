@@ -1,28 +1,63 @@
 ---
-toc: true
-comments: false
-hide: true
+toc: True
+comments: True
+hide: True
 layout: post
-type: help
-title: Color Wheel 
+title: Binary CSP Project
 ---
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Color Wheel</title>
+  <title>Rainbow Color Table</title>
   <style>
     body {
+      font-family: Arial, sans-serif;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       height: 100vh;
       margin: 0;
+      background-color: #f0f0f0;
+      color: #333;
     }
-    canvas {
-      border: 2px solid #000;
-      cursor: crosshair;
+    table {
+      border-collapse: collapse;
+      width: 600px;
+      background-color: #d9d9d9;
+    }
+    th, td {
+      padding: 0;
+      border: 1px solid #ccc;
+    }
+    th {
+      background-color: #333;
+      color: #fff;
+    }
+    .color-box {
+      width: 60px;
+      height: 60px;
+      cursor: pointer;
+      position: relative;
+    }
+    .details {
+      display: none;
+      position: absolute;
+      width: 120px;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 5px;
+      padding: 5px;
+      bottom: 100%;
+      left: 50%;
+      margin-left: -60px;
+    }
+    .color-box:hover .details {
+      display: block;
+    }
+    .color-box:hover {
+      filter: brightness(150%); 
     }
     #colorInfo {
       text-align: center;
@@ -30,86 +65,70 @@ title: Color Wheel
   </style>
 </head>
 <body>
-  <canvas id="colorWheel" width="400" height="400"></canvas>
-  <div id="colorInfo">
-    <p id="rgbLabel">RGB: </p>
-    <p id="binaryLabel">Binary: </p>
-  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Colors:</th>
+      </tr>
+    </thead>
+    <tbody id="colorTableBody">
+    </tbody>
+  </table>
 
   <script>
-    const canvas = document.getElementById('colorWheel');
-    const ctx = canvas.getContext('2d');
-    const colorInfo = document.getElementById('colorInfo');
-    const rgbLabel = document.getElementById('rgbLabel');
-    const binaryLabel = document.getElementById('binaryLabel');
+    document.addEventListener("DOMContentLoaded", function() {
+      const colors = ['#ff0000', '#ff7f00', '#ffff00', '#00ff00', '#0000ff', '#8b00ff', '#000000', '#ffffff'];
+      const tableBody = document.getElementById('colorTableBody');
 
-    function drawColorWheel() {
-      const radius = canvas.width / 2;
-      const centerX = canvas.width / 2;
-      const centerY = canvas.height / 2;
+      colors.forEach(color => {
+        createColorRow(color);
+      });
 
-      for (let angle = 0; angle < 360; angle++) {
-        const startAngle = (angle * Math.PI) / 180;
-        const endAngle = ((angle + 1) * Math.PI) / 180;
-        const color = hsvToRgb(angle, 1, 1);
-        ctx.beginPath();
-        ctx.moveTo(centerX, centerY);
-        ctx.arc(centerX, centerY, radius, startAngle, endAngle);
-        ctx.fillStyle = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
-        ctx.fill();
-      }
-    }
+      function createColorRow(color) {
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+          <td class="color-box" style="background-color: ${color};">
+            <div class="details">${getColorName(color)}: RGB(${hexToRgb(color).r}, ${hexToRgb(color).g}, ${hexToRgb(color).b})<br>
+              Binary: ${rgbToBinary(hexToRgb(color))}<br> Hex: ${color}</div>
+          </td>
+        `;
+        tableBody.appendChild(newRow);
 
-    function hsvToRgb(h, s, v) {
-      h = (h + 360) % 360; // Ensure h is between 0 and 360 degrees
-      h /= 360;
-      s = Math.min(1, Math.max(0, s));
-      v = Math.min(1, Math.max(0, v));
+        newRow.addEventListener('click', function() {
+          const allRows = document.querySelectorAll('tr');
+          allRows.forEach(row => row.classList.remove('clicked'));
 
-      let r, g, b;
-      const i = Math.floor(h * 6);
-      const f = h * 6 - i;
-      const p = v * (1 - s);
-      const q = v * (1 - f * s);
-      const t = v * (1 - (1 - f) * s);
-
-      switch (i % 6) {
-        case 0: r = v; g = t; b = p; break;
-        case 1: r = q; g = v; b = p; break;
-        case 2: r = p; g = v; b = t; break;
-        case 3: r = p; g = q; b = v; break;
-        case 4: r = t; g = p; b = v; break;
-        case 5: r = v; g = p; b = q; break;
+          newRow.classList.add('clicked');
+        });
       }
 
-      return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
-    }
+      function getColorName(hexColor) {
+        const colorNames = {
+          '#ff0000': 'Red',
+          '#ff7f00': 'Orange',
+          '#ffff00': 'Yellow',
+          '#00ff00': 'Green',
+          '#0000ff': 'Blue',
+          '#8b00ff': 'Purple',
+          '#000000': 'Black',
+          '#ffffff': 'White',
+        };
 
-    function updateColorInfo(x, y) {
-      const radius = canvas.width / 2;
-      const centerX = canvas.width / 2;
-      const centerY = canvas.height / 2;
-      const angle = Math.atan2(y - centerY, x - centerX);
-      const distance = Math.sqrt((x - centerX) ** 2 + (y - centerY) ** 2);
-      const normalizedDistance = Math.min(1, Math.max(0, distance / radius));
-      const color = hsvToRgb((angle * 180) / Math.PI, normalizedDistance, 1);
+        return colorNames[hexColor] || '';
+      }
 
-      rgbLabel.textContent = `RGB: ${color[0]}, ${color[1]}, ${color[2]}`;
-      binaryLabel.textContent = `Binary: ${rgbToBinary(color)}`;
-    }
+      function hexToRgb(hex) {
+        hex = hex.slice(1);
+        const bigint = parseInt(hex, 16);
+        const r = (bigint >> 16) & 255;
+        const g = (bigint >> 8) & 255;
+        const b = bigint & 255;
+        return { r, g, b };
+      }
 
-    function rgbToBinary(rgb) {
-      return `${rgb[0].toString(2).padStart(8, '0')} ${rgb[1].toString(2).padStart(8, '0')} ${rgb[2].toString(2).padStart(8, '0')}`;
-    }
-
-    drawColorWheel();
-
-    canvas.addEventListener('mousemove', (event) => {
-      const rect = canvas.getBoundingClientRect();
-      const x = event.clientX - rect.left;
-      const y = event.clientY - rect.top;
-
-      updateColorInfo(x, y);
+      function rgbToBinary(rgb) {
+        return Object.values(rgb).map(val => val.toString(2).padStart(8, '0')).join(' ');
+      }
     });
   </script>
 </body>
