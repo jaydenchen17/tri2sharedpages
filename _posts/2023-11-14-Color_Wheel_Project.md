@@ -7,7 +7,6 @@ type: help
 title: Color Wheel 
 ---
 
->>>>>>> 5c971c7 (color searcher)
 <html lang="en">
 <head>
   <meta charset="UTF-8">
