@@ -12,7 +12,7 @@ title: Binary CSP Project
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rainbow Color Table</title>
+  <title>Color Table</title>
   <style>
     body {
       font-family: Arial, sans-serif;
