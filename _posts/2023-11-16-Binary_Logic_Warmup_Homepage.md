@@ -14,12 +14,18 @@ courses: { compsci: {week: 1} }
 </head>
 <body>
 
-  <button onclick="window.location.href='/Nighthawk-Pages/2023/11/14/Color_Wheel_Project.html'" style="background-color: #add8e6; color: white; padding: 15px 30px; font-size: 20px; cursor: pointer;">Color Wheel Project</button>
+<p><strong> What is Binary Logic? </strong></p>
 
-  <button onclick="window.location.href='/Nighthawk-Pages/2023/11/16/Color-Searcher.html'" style="background-color: #add8e6; color: white; padding: 15px 30px; font-size: 20px; cursor: pointer;">Color Searcher</button>
+<div>
+<p><strong> Hex Numbers and Binary Code </strong></p?>
 
-<button onclick="window.location.href='/Nighthawk-Pages/2023/11/16/Binary_Lightbulb.html'" style="background-color: #add8e6; color: white; padding: 15px 30px; font-size: 20px; cursor: pointer;">Lightbulbs</button>
-  
+<div>
+  <button onclick="window.location.href='/Nighthawk-Pages/2023/11/14/COLORWHEEL.html'" style="background-color: #add8e6; color: white; padding: 15px 30px; font-size: 20px; cursor: pointer;">Color Wheel Project</button>
+  <div>
 
+  <button onclick="window.location.href='/Nighthawk-Pages/2023/11/16/COLOR_SEARCH.html'" style="background-color: #add8e6; color: white; padding: 15px 30px; font-size: 20px; cursor: pointer;">Color Searcher</button>
+  <div>
+
+<button onclick="window.location.href='/Nighthawk-Pages/2023/11/16/LIGHTBULB.html'" style="background-color: #add8e6; color: white; padding: 15px 30px; font-size: 20px; cursor: pointer;">Lightbulbs</button>
 </body>
 </html>
