@@ -7,6 +7,8 @@ title: Binary Lightbulb
 ---
 <button onclick="window.location.href='/Nighthawk-Pages/2023/11/16/Binary_Logic_Warmup_Homepage.html'" style="background-color: #add8e6; color: white; padding: 15px 30px; font-size: 20px; cursor: pointer;">Back to Home</button>
 
+<br>
+
 {% assign BITS = 8 %}
 
 <style>
@@ -32,12 +34,12 @@ title: Binary Lightbulb
 <table>
     <thead>
         <tr class="header" id="table">
-            <th>Increment</th>
+            <th>Increase</th>
             <th>Binary</th>
             <th>Octal</th>
             <th>Hexadecimal</th>
             <th>Decimal</th>
-            <th>Decrement</th>
+            <th>Decrease</th>
         </tr>
     </thead>
     <tbody>
@@ -64,7 +66,7 @@ Liquid for loop includes the last number, thus the Minus
             Build many bits
             {% endcomment %}
             {% for i in (0..bits) %}
-            <th><img id="bulb{{ i }}" src="{{site.baseurl}}/images/lightbulbOff.png" alt="" width="40" height="Auto">
+            <th><img id="bulb{{ i }}" src="{{site.baseurl}}/images/lightbulbOff.png" alt="" width="60" height="Auto">
                 <div class="button" id="butt{{ i }}" onclick="javascript:toggleBit({{ i }})">Turn on</div>
             </th>
             {% endfor %}
@@ -90,6 +92,7 @@ Liquid for loop includes the last number, thus the Minus
     const MSG_OFF = "Turn off";
     const IMAGE_OFF = "{{site.baseurl}}/images/lightbulbOff.png"
 
+    const names = ['marcus', 'nihar', 'miguel', 'brandon', 'jayden', 'aiden', 'chris', 'mr. lopez'];
 
     function getBits() {
         let bits = "";
@@ -125,26 +128,28 @@ Liquid for loop includes the last number, thus the Minus
         }
         return conversion;
     }
-    
+
     function toggleBit(i) {
-        
+
         const dig = document.getElementById('digit' + i);
         const image = document.getElementById('bulb' + i);
         const butt = document.getElementById('butt' + i);
         
+        const name = names[i];  // Get the corresponding name from the array
+
         if (image.src.match(IMAGE_ON)) {
             dig.value = 0;
             image.src = IMAGE_OFF;
-            butt.innerHTML = MSG_ON;
+            butt.innerHTML = `Turn on ${name}`;
         } else {
             dig.value = 1;
             image.src = IMAGE_ON;
-            butt.innerHTML = MSG_OFF;
+            butt.innerHTML = `Turn off ${name}`;
         }
-        
+    
         const binary = getBits();
         setConversions(binary);
-    }
+    }        
 
     function add(n) {
         let binary = getBits();
@@ -173,3 +178,8 @@ Liquid for loop includes the last number, thus the Minus
         }
     }
 </script>
+
+
+Our code creates a web page with a binary lightbulb interface, allowing users to interact with binary values that correspond with the lightbulbs. This binary representation is  displayed through lightbulb icons, and users can increase or decrease the binary number, to make changes to the binary, octal, hexadecimal, and decimal values. What we tried to make different was that we made each lightbulb button with specific names, like "nihar", "brandon" and "Mr. Lopez," making the user experience more engaging and customized to our group. 
+
+We added names by creating an array called `names` that holds the corresponding names for each lightbulb button. Within the JavaScript section of the code, the toggleBit function was modified to include an additional parameter name, ensuring that each button displays the appropriate name when turned on or off. 
