@@ -15,10 +15,14 @@ courses: { compsci: {week: 1} }
 
 
 <p><strong> What is Binary Logic? </strong></p>
-
+Binary logic is a computing system which uses 1 and 0 to define values, integers, colors, characters, and more. Binary logic uses logic gates to change the value of a variable to a 1 or a 0 which will change the final output of the system.
 <div>
-<p><strong> Hex Numbers and Binary Code </strong></p>
-
+<p><strong> Hex Numbers and RGB code </strong></p>
+Hex numbers plays a very big role in coding with binary when it comes to displaying and changing colors:
+<div>
+- Hex number: number assigned to different colors out of a 16 digit arrangement, makes use of letters A-F with A=10, B=11, C=12, etc.
+<div>
+- RGB Code: Intensity of either red, green, or blue measured in a (0,0,0) format, totaling in a sum value of 255
 <div>
   <button onclick="window.location.href='/Nighthawk-Pages/2023/11/14/COLORWHEEL.html'" style="background-color: #add8e6; color: white; padding: 15px 30px; font-size: 20px; cursor: pointer;">Color Wheel Project</button>
   <div>
