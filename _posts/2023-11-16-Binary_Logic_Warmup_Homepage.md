@@ -12,12 +12,12 @@ courses: { compsci: {week: 1} }
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Color Binary Logic Home Page</title>
 </head>
-<body>
+
 
 <p><strong> What is Binary Logic? </strong></p>
 
 <div>
-<p><strong> Hex Numbers and Binary Code </strong></p?>
+<p><strong> Hex Numbers and Binary Code </strong></p>
 
 <div>
   <button onclick="window.location.href='/Nighthawk-Pages/2023/11/14/COLORWHEEL.html'" style="background-color: #add8e6; color: white; padding: 15px 30px; font-size: 20px; cursor: pointer;">Color Wheel Project</button>
@@ -27,5 +27,4 @@ courses: { compsci: {week: 1} }
   <div>
 
 <button onclick="window.location.href='/Nighthawk-Pages/2023/11/16/LIGHTBULB.html'" style="background-color: #add8e6; color: white; padding: 15px 30px; font-size: 20px; cursor: pointer;">Lightbulbs</button>
-</body>
-</html>
+
