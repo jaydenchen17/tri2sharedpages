@@ -66,8 +66,9 @@ Liquid for loop includes the last number, thus the Minus
             Build many bits
             {% endcomment %}
             {% for i in (0..bits) %}
-            <th><img id="bulb{{ i }}" src="{{site.baseurl}}/images/lightbulbOff.png" alt="" width="60" height="Auto">
-                <div class="button" id="butt{{ i }}" onclick="javascript:toggleBit({{ i }})">Turn on</div>
+            <th>
+                <img id="bulb{{ i }}" src="{{site.baseurl}}/images/lightbulbOff.png" alt="" width="60" height="Auto">
+                <div class="button" id="butt{{ i }}" name="{{ names[i] }}" onclick="javascript:toggleBit({{ i }})">Turn on {{ names[i] }}</div>
             </th>
             {% endfor %}
         </tr>
@@ -130,11 +131,10 @@ Liquid for loop includes the last number, thus the Minus
     }
 
     function toggleBit(i) {
-
         const dig = document.getElementById('digit' + i);
         const image = document.getElementById('bulb' + i);
         const butt = document.getElementById('butt' + i);
-        
+
         const name = names[i];  // Get the corresponding name from the array
 
         if (image.src.match(IMAGE_ON)) {
@@ -146,37 +146,40 @@ Liquid for loop includes the last number, thus the Minus
             image.src = IMAGE_ON;
             butt.innerHTML = `Turn off ${name}`;
         }
-    
+
         const binary = getBits();
         setConversions(binary);
-    }        
+    }
+        
 
     function add(n) {
         let binary = getBits();
-        
+
         let decimal = parseInt(binary, 2);
         if (n > 0) {
             decimal = MAX === decimal ? 0 : decimal += n;
-        } else  {
+        } else {
             decimal = 0 === decimal ? MAX : decimal += n;
         }
-        
+
         binary = decimal_2_base(decimal, 2);
-        
+
         setConversions(binary);
-        
+
         for (let i = 0; i < binary.length; i++) {
             let digit = binary.substr(i, 1);
             document.getElementById('digit' + i).value = digit;
+            const name = names[i];  // Get the corresponding name from the array
             if (digit === "1") {
                 document.getElementById('bulb' + i).src = IMAGE_ON;
-                document.getElementById('butt' + i).innerHTML = MSG_OFF;
+                document.getElementById('butt' + i).innerHTML = `Turn off ${name}`;
             } else {
                 document.getElementById('bulb' + i).src = IMAGE_OFF;
-                document.getElementById('butt' + i).innerHTML = MSG_ON;
+                document.getElementById('butt' + i).innerHTML = `Turn on ${name}`;
             }
         }
     }
+
 </script>
 
 
