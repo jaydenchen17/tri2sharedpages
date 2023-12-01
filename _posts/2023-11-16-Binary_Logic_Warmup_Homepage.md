@@ -13,6 +13,27 @@ courses: { compsci: {week: 1} }
   <title>Color Binary Logic Home Page</title>
 </head>
 
+  <style>
+    body {
+      background-color: #add8e6; /* Baby blue background color */
+      font-family: Arial, sans-serif; 
+    }
+
+    p, strong {
+      color: navy; /* Color for text */
+    }
+
+    button {
+      background-color: #0077cc; 
+      color: white;
+      padding: 15px 30px;
+      font-size: 20px;
+      cursor: pointer;
+      border: 1px solid #0077cc; 
+      border-radius: 5px; 
+      margin-bottom: 10px; 
+    }
+  </style>
 
 <p><strong> What is Binary Logic? </strong></p>
 Binary logic is a computing system which uses 1 and 0 to define values, integers, colors, characters, and more. Binary logic uses logic gates to change the value of a variable to a 1 or a 0 which will change the final output of the system.
