@@ -5,8 +5,7 @@ hide: True
 layout: post
 title: Binary CSP Project
 ---
-
-  <button onclick="window.location.href='/Nighthawk-Pages/2023/11/16/Binary_Logic_Warmup_Homepage.html'" style="background-color: #add8e6; color: white; padding: 15px 30px; font-size: 20px; cursor: pointer;">Back to Home</button>
+<button onclick="goToHomePage()">Back to Home</button>
 
 <html lang="en">
 <head>
@@ -60,7 +59,7 @@ title: Binary CSP Project
       display: block;
     }
     .color-box:hover {
-      filter: brightness(150%); 
+      filter: brightness(150%);
     }
     #colorInfo {
       text-align: center;
@@ -74,8 +73,7 @@ title: Binary CSP Project
         <th>Colors:</th>
       </tr>
     </thead>
-    <tbody id="colorTableBody">
-    </tbody>
+    <tbody id="colorTableBody"></tbody>
   </table>
 
   <script>
@@ -83,26 +81,24 @@ title: Binary CSP Project
       const colors = ['#ff0000', '#ff7f00', '#ffff00', '#00ff00', '#0000ff', '#8b00ff', '#000000', '#ffffff'];
       const tableBody = document.getElementById('colorTableBody');
 
-      colors.forEach(color => {
-        createColorRow(color);
-      });
+      colors.forEach(color => createColorRow(color));
 
       function createColorRow(color) {
         const newRow = document.createElement('tr');
         newRow.innerHTML = `
-          <td class="color-box" style="background-color: ${color};">
-            <div class="details">${getColorName(color)}: RGB(${hexToRgb(color).r}, ${hexToRgb(color).g}, ${hexToRgb(color).b})<br>
-              Binary: ${rgbToBinary(hexToRgb(color))}<br> Hex: ${color}</div>
-          </td>
+          <td class="color-box" style="background-color: ${color};" onclick="setColorDetails(this, '${color}')"></td>
         `;
         tableBody.appendChild(newRow);
+      }
 
-        newRow.addEventListener('click', function() {
-          const allRows = document.querySelectorAll('tr');
-          allRows.forEach(row => row.classList.remove('clicked'));
+      function setColorDetails(element, hexColor) {
+        const details = document.querySelector('.details');
+        details.innerHTML = `${getColorName(hexColor)}: RGB(${hexToRgb(hexColor).r}, ${hexToRgb(hexColor).g}, ${hexToRgb(hexColor).b})<br> Binary: ${rgbToBinary(hexToRgb(hexColor))}<br> Hex: ${hexColor}`;
 
-          newRow.classList.add('clicked');
-        });
+        const allRows = document.querySelectorAll('tr');
+        allRows.forEach(row => row.classList.remove('clicked'));
+
+        element.parentElement.classList.add('clicked');
       }
 
       function getColorName(hexColor) {
@@ -133,6 +129,10 @@ title: Binary CSP Project
         return Object.values(rgb).map(val => val.toString(2).padStart(8, '0')).join(' ');
       }
     });
+
+    function goToHomePage() {
+      window.location.href = '/Nighthawk-Pages/2023/11/16/Binary_Logic_Warmup_Homepage.html';
+    }
   </script>
 </body>
 </html>
