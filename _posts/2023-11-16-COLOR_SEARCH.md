@@ -85,3 +85,6 @@ title: Color Searcher
 
 </body>
 </html>
+<br>
+<br>
+When you click the button, it runs the function called getColorInfo. This function has gets the color you inputted and also has a variable with a list of colors and their hex codes. Then, the text inputted is compared to all the colors in the list and if it matches it displays the color name, hex code, and color in the box. Next, another function called hexToBinary converts the hex code into binary and displays it. 
