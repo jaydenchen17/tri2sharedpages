@@ -20,7 +20,7 @@ title: Binary CSP Project
       align-items: center;
       height: 100vh;
       margin: 0;
-      background-color: #f0f0f0;
+      background-color: #add8e6;
       color: #333;
     }
     table {

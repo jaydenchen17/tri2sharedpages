@@ -12,6 +12,16 @@ title: Binary Lightbulb
 {% assign BITS = 8 %}
 
 <style>
+    body {
+            background-color: #add8e6; /* Change the background color here */
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: white;
+        }
     td {
         text-align: center;
         vertical-align: middle;

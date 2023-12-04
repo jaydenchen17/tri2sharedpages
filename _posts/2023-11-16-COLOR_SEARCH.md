@@ -13,6 +13,16 @@ title: Color Searcher
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Color Information</title>
     <style>
+        body {
+            background-color: #add8e6; /* Change the background color here */
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: white;
+        }
         #color-box {
             width: 100px;
             height: 100px;
