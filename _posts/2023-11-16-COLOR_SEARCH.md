@@ -5,7 +5,6 @@ hide: True
 layout: post
 title: Color Searcher
 ---
-<button onclick="window.location.href='/Nighthawk-Pages/2023/11/16/Binary_Logic_Warmup_Homepage.html'" style="background-color: #add8e6; color: white; padding: 15px 30px; font-size: 20px; cursor: pointer;">Back to Home</button>
 
 <html lang="en">
 <head>
@@ -35,8 +34,8 @@ title: Color Searcher
 
 <h1>Color Information</h1>
 
-<label for="colorName">Enter color name:</label>
-<input type="text" id="colorName" placeholder="e.g., red">
+<label for="colorInput">Enter color name or hex code:</label>
+<input type="text" id="colorInput" placeholder="e.g., red or #FF0000">
 
 <button onclick="getColorInfo()">Get Color Info</button>
 
@@ -49,8 +48,8 @@ title: Color Searcher
 
 <script>
     function getColorInfo() {
-        // Get the color name from the input field
-        var colorName = document.getElementById('colorName').value.toLowerCase();
+        // Get the color name or hex code from the input field
+        var colorInput = document.getElementById('colorInput').value.toLowerCase();
 
         // Dictionary mapping basic color names to hex codes
         var colors = {
@@ -66,9 +65,9 @@ title: Color Searcher
             'white': '#FFFFFF'
         };
 
-        // Check if the entered color name is in the dictionary
-        if (colorName in colors) {
-            var hexCode = colors[colorName];
+        // Check if the entered input is a color name
+        if (colorInput in colors) {
+            var hexCode = colors[colorInput];
             var binaryCode = hexToBinary(hexCode);
 
             // Display the color information
@@ -79,7 +78,21 @@ title: Color Searcher
             var colorBox = document.getElementById('color-box');
             colorBox.style.backgroundColor = hexCode;
         } else {
-            alert('Invalid color name. Please enter a basic color name.');
+            // Check if the entered input is a hex code
+            if (/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(colorInput)) {
+                var hexCode = colorInput;
+                var binaryCode = hexToBinary(hexCode);
+
+                // Display the color information
+                document.getElementById('hexCode').innerText = hexCode;
+                document.getElementById('binaryCode').innerText = binaryCode;
+
+                // Update the color box
+                var colorBox = document.getElementById('color-box');
+                colorBox.style.backgroundColor = hexCode;
+            } else {
+                alert('Invalid color name or hex code. Please enter a basic color name or a valid hex code.');
+            }
         }
     }
 
@@ -95,6 +108,4 @@ title: Color Searcher
 
 </body>
 </html>
-<br>
-<br>
-When you click the button, it runs the function called getColorInfo. This function has gets the color you inputted and also has a variable with a list of colors and their hex codes. Then, the text inputted is compared to all the colors in the list and if it matches it displays the color name, hex code, and color in the box. Next, another function called hexToBinary converts the hex code into binary and displays it. 
+
