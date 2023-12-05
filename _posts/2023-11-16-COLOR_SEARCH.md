@@ -5,7 +5,6 @@ hide: True
 layout: post
 title: Color Searcher
 ---
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -27,6 +26,7 @@ title: Color Searcher
             height: 100px;
             margin-top: 10px;
             border: 2px solid white; /* Add white border */
+            border: 2px solid black; /* Add black border */
         }
     </style>
 </head>
@@ -109,3 +109,4 @@ title: Color Searcher
 </body>
 </html>
 
+When you click the button, it runs the function called getColorInfo. This function has gets the color you inputted and also has a variable with a list of colors and their hex codes. Then, the text inputted is compared to all the colors in the list and if it matches it displays the color name, hex code, and color in the box. Next, another function called hexToBinary converts the hex code into binary and displays it. I also added a hex color searcher where when you input a hex code it outputs a color as well as its binary.
