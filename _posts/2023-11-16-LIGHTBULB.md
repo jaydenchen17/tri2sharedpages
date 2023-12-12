@@ -77,7 +77,7 @@ Liquid for loop includes the last number, thus the Minus
             {% endcomment %}
             {% for i in (0..bits) %}
             <th>
-                <img id="bulb{{ i }}" src="{{site.baseurl}}/images/lightbulbOff.png" alt="" width="60" height="Auto">
+                <img id="bulb{{  i }}" src="{{site.baseurl}}/images/lightbulbOff.png" alt="" width="60" height="Auto">
                 <div class="button" id="butt{{ i }}" name="{{ names[i] }}" onclick="javascript:toggleBit({{ i }})">Turn on {{ names[i] }}</div>
             </th>
             {% endfor %}
@@ -145,7 +145,7 @@ Liquid for loop includes the last number, thus the Minus
         const image = document.getElementById('bulb' + i);
         const butt = document.getElementById('butt' + i);
 
-        const name = names[i];  // Get the corresponding name from the array
+        const name = names[i];
 
         if (image.src.match(IMAGE_ON)) {
             dig.value = 0;
