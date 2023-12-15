@@ -12,7 +12,7 @@ title: Color Searcher
     <title>Color Information</title>
     <style>
         body {
-            background-color: #add8e6; /* Change the background color here */
+            background-color: #add8e6; 
             font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
@@ -25,8 +25,8 @@ title: Color Searcher
             width: 100px;
             height: 100px;
             margin-top: 10px;
-            border: 2px solid white; /* Add white border */
-            border: 2px solid black; /* Add black border */
+            border: 2px solid white; 
+            border: 2px solid black; 
         }
     </style>
 </head>
@@ -48,10 +48,9 @@ title: Color Searcher
 
 <script>
     function getColorInfo() {
-        // Get the color name or hex code from the input field
+ 
         var colorInput = document.getElementById('colorInput').value.toLowerCase();
 
-        // Dictionary mapping basic color names to hex codes
         var colors = {
             'red': '#FF0000',
             'green': '#00FF00',
@@ -65,29 +64,27 @@ title: Color Searcher
             'white': '#FFFFFF'
         };
 
-        // Check if the entered input is a color name
         if (colorInput in colors) {
             var hexCode = colors[colorInput];
             var binaryCode = hexToBinary(hexCode);
 
-            // Display the color information
             document.getElementById('hexCode').innerText = hexCode;
             document.getElementById('binaryCode').innerText = binaryCode;
 
-            // Update the color box
+          
             var colorBox = document.getElementById('color-box');
             colorBox.style.backgroundColor = hexCode;
         } else {
-            // Check if the entered input is a hex code
+ 
             if (/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(colorInput)) {
                 var hexCode = colorInput;
                 var binaryCode = hexToBinary(hexCode);
 
-                // Display the color information
+         
                 document.getElementById('hexCode').innerText = hexCode;
                 document.getElementById('binaryCode').innerText = binaryCode;
 
-                // Update the color box
+             
                 var colorBox = document.getElementById('color-box');
                 colorBox.style.backgroundColor = hexCode;
             } else {
@@ -97,11 +94,9 @@ title: Color Searcher
     }
 
     function hexToBinary(hex) {
-        // Convert hex to binary and format in groups of 8
+       
         var binaryString = parseInt(hex.substring(1), 16).toString(2);
         var paddedBinary = binaryString.padStart(Math.ceil(binaryString.length / 8) * 8, '0');
-
-        // Insert spaces every 8 characters
         return paddedBinary.match(/.{1,8}/g).join(' ');
     }
 </script>
