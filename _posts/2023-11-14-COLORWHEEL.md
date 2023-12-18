@@ -5,8 +5,8 @@ hide: True
 layout: post
 title: Binary CSP Project
 ---
- <button onclick="window.location.href='/Nighthawk-Pages/2023/11/16/Binary_Logic_Warmup_Homepage.html'" style="background-color: #add8e6; color: white; padding: 15px 30px; font-size: 20px; cursor: pointer;">Back to Home</button>
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -131,8 +131,7 @@ title: Binary CSP Project
       function rgbToBinary(rgb) {
         return Object.values(rgb).map(val => val.toString(2).padStart(8, '0')).join(' ');
       }
-    
+    });
   </script>
 </body>
 </html>
-
