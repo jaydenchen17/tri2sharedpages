@@ -132,7 +132,7 @@ title: Binary CSP Project
       function rgbToBinary(rgb) {
         return Object.values(rgb).map(val => val.toString(2).padStart(8, '0')).join(' ');
       }
-    });
+    
   </script>
 </body>
 </html>
