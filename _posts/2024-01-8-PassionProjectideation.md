@@ -12,7 +12,7 @@ We want to begin with a login page, prompting the user to create an account with
 
 ## Assigned Roles
 
-Jayden: Racing game, designs UI and algorithm
+Jayden: Racing game, designs UI and algorithm, scrum master
 
 Brandon: User login system, stores user data and can be retreived  
 
@@ -20,4 +20,4 @@ Marcus: Make a slot machine, designs UI and algorithm
 
 Miguel: User login system, stores user data and can be retreived
 
-Nihar: Scrum master, oversees projects
+Nihar: Scrum vice-master, fun commander, slot machine
