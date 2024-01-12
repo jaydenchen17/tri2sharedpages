@@ -1,7 +1,7 @@
 ---
-toc: True
-comments: True
-hide: True
+toc: False
+comments: False
+hide: False
 layout: post
 title: Passion Project Ideation
 ---
