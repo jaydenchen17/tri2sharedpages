@@ -16,8 +16,8 @@ Jayden: Racing game, designs UI and algorithm, scrum master
 
 Brandon: User login system, stores user data and can be retreived  
 
-Marcus: Make a slot machine, designs UI and algorithm
+Marcus: Make a slot machine and dice, designs UI and algorithm
 
-Miguel: User login system, stores user data and can be retreived
+Miguel: User login system, stores user data and can be retreived, contributes to other games.
 
-Nihar: Scrum vice-master, fun commander, slot machine
+Nihar: Scrum vice-master, fun commander, slot machine and dice. 
