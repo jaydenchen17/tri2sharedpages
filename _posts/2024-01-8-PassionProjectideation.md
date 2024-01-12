@@ -16,7 +16,7 @@ Jayden: Racing game, designs UI and algorithm
 
 Brandon: User login system, stores user data and can be retreived  
 
-Marcus: Dice game, designs UI and algorithm
+Marcus: Dice game, designs UI and algorithm, SASS Styling
 
 Miguel: User login system, stores user data and can be retreived
 
