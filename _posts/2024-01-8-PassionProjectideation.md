@@ -26,4 +26,3 @@ Miguel: User login system, stores user data and can be retreived
 ## Theme
 
 We will do a black, gold, and red casino theme for our website implementing SASS styling similarly to how we themed our previous CPT Warmup project. 
-
